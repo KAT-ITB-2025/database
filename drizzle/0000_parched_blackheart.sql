@@ -1,16 +1,6 @@
-DO $$ BEGIN
- CREATE TYPE "public"."account_role_enum" AS ENUM('admin', 'mamet', 'mentor', 'user', 'guest');
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
- CREATE TYPE "public"."media_bucket_enum" AS ENUM('core', 'oskm', 'dikpus', 'profile', 'submission-dikpus', 'submission-oskm', 'other');
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "account" (
+CREATE TYPE "public"."account_role_enum" AS ENUM('admin', 'mamet', 'mentor', 'user', 'guest');--> statement-breakpoint
+CREATE TYPE "public"."media_bucket_enum" AS ENUM('core', 'oskm', 'dikpus', 'profile', 'submission-dikpus', 'submission-oskm', 'other');--> statement-breakpoint
+CREATE TABLE "account" (
 	"id" text PRIMARY KEY NOT NULL,
 	"nim" text NOT NULL,
 	"password" text NOT NULL,
@@ -20,7 +10,7 @@ CREATE TABLE IF NOT EXISTS "account" (
 	CONSTRAINT "account_nim_unique" UNIQUE("nim")
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "user" (
+CREATE TABLE "user" (
 	"id" text PRIMARY KEY NOT NULL,
 	"nim" text NOT NULL,
 	"email" text,
@@ -36,7 +26,7 @@ CREATE TABLE IF NOT EXISTS "user" (
 	CONSTRAINT "user_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
-CREATE TABLE IF NOT EXISTS "media" (
+CREATE TABLE "media" (
 	"id" text PRIMARY KEY NOT NULL,
 	"creator_id" text NOT NULL,
 	"name" text NOT NULL,
@@ -48,14 +38,5 @@ CREATE TABLE IF NOT EXISTS "media" (
 	CONSTRAINT "media_name_unique" UNIQUE("name")
 );
 --> statement-breakpoint
-DO $$ BEGIN
- ALTER TABLE "user" ADD CONSTRAINT "user_id_account_id_fk" FOREIGN KEY ("id") REFERENCES "public"."account"("id") ON DELETE no action ON UPDATE no action;
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
---> statement-breakpoint
-DO $$ BEGIN
- ALTER TABLE "media" ADD CONSTRAINT "media_creator_id_user_id_fk" FOREIGN KEY ("creator_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;
-EXCEPTION
- WHEN duplicate_object THEN null;
-END $$;
+ALTER TABLE "user" ADD CONSTRAINT "user_id_account_id_fk" FOREIGN KEY ("id") REFERENCES "public"."account"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "media" ADD CONSTRAINT "media_creator_id_user_id_fk" FOREIGN KEY ("creator_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;

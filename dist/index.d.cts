@@ -14,8 +14,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: false;
+            isPrimaryKey: true;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         nim: drizzle_orm_pg_core.PgColumn<{
             name: "nim";
@@ -26,8 +31,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         email: drizzle_orm_pg_core.PgColumn<{
             name: "email";
@@ -38,8 +48,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         fullName: drizzle_orm_pg_core.PgColumn<{
             name: "full_name";
@@ -50,8 +65,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         birthDate: drizzle_orm_pg_core.PgColumn<{
             name: "birth_date";
@@ -62,8 +82,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: undefined;
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         phoneNumber: drizzle_orm_pg_core.PgColumn<{
             name: "phone_number";
@@ -74,8 +99,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         idLine: drizzle_orm_pg_core.PgColumn<{
             name: "id_line";
@@ -86,8 +116,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         idDiscord: drizzle_orm_pg_core.PgColumn<{
             name: "id_discord";
@@ -98,8 +133,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         idInstagram: drizzle_orm_pg_core.PgColumn<{
             name: "id_instagram";
@@ -110,8 +150,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         createdAt: drizzle_orm_pg_core.PgColumn<{
             name: "created_at";
@@ -122,8 +167,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: undefined;
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         updatedAt: drizzle_orm_pg_core.PgColumn<{
             name: "updated_at";
@@ -134,8 +184,13 @@ declare const user: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: undefined;
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
     };
     dialect: "pg";
@@ -155,8 +210,13 @@ declare const account: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: false;
+            isPrimaryKey: true;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         nim: drizzle_orm_pg_core.PgColumn<{
             name: "nim";
@@ -167,8 +227,13 @@ declare const account: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         password: drizzle_orm_pg_core.PgColumn<{
             name: "password";
@@ -179,8 +244,13 @@ declare const account: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         role: drizzle_orm_pg_core.PgColumn<{
             name: "role";
@@ -191,8 +261,13 @@ declare const account: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: ["admin", "mamet", "mentor", "user", "guest"];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         createdAt: drizzle_orm_pg_core.PgColumn<{
             name: "created_at";
@@ -203,8 +278,13 @@ declare const account: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: undefined;
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         updatedAt: drizzle_orm_pg_core.PgColumn<{
             name: "updated_at";
@@ -215,8 +295,13 @@ declare const account: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: false;
             hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: undefined;
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
     };
     dialect: "pg";
@@ -239,8 +324,13 @@ declare const media: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: true;
+            isPrimaryKey: true;
+            isAutoincrement: false;
+            hasRuntimeDefault: true;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         creatorId: drizzle_orm_pg_core.PgColumn<{
             name: "creator_id";
@@ -251,8 +341,13 @@ declare const media: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         name: drizzle_orm_pg_core.PgColumn<{
             name: "name";
@@ -263,8 +358,13 @@ declare const media: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         bucket: drizzle_orm_pg_core.PgColumn<{
             name: "bucket";
@@ -275,8 +375,13 @@ declare const media: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: ["core", "oskm", "dikpus", "profile", "submission-dikpus", "submission-oskm", "other"];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         type: drizzle_orm_pg_core.PgColumn<{
             name: "type";
@@ -287,8 +392,13 @@ declare const media: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         url: drizzle_orm_pg_core.PgColumn<{
             name: "url";
@@ -299,8 +409,13 @@ declare const media: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         updatedAt: drizzle_orm_pg_core.PgColumn<{
             name: "updated_at";
@@ -311,8 +426,13 @@ declare const media: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: undefined;
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
         createdAt: drizzle_orm_pg_core.PgColumn<{
             name: "created_at";
@@ -323,8 +443,13 @@ declare const media: drizzle_orm_pg_core.PgTableWithColumns<{
             driverParam: string;
             notNull: true;
             hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
             enumValues: undefined;
             baseColumn: never;
+            identity: undefined;
+            generated: undefined;
         }, {}, {}>;
     };
     dialect: "pg";
