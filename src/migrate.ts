@@ -5,7 +5,6 @@ import * as schema from "./schema"
 
 export const migrationClient = postgres(process.env.DATABASE_URL || "postgres://postgres:postgres@localhost:5432/coba", { max: 1 });
 export const db = drizzle(migrationClient, {schema})
-export type Database = typeof db;
 
 await migrate(db, {migrationsFolder: "./drizzle"})
 await migrationClient.end();
