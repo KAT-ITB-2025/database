@@ -1,0 +1,95 @@
+import { relations } from 'drizzle-orm';
+import { pgEnum, pgTable, text, timestamp, integer, unique, serial, boolean } from 'drizzle-orm/pg-core';
+import { getNow } from '~/drizzle-schema-util';
+import { user } from './user.schema';
+
+export const userStageProgressStatusEnum = pgEnum('user_stage_progress_enum', [
+  'completed',
+  'in_progress',
+  'locked'
+]);
+
+export const stage = pgTable('stage', {
+  id: serial('id').primaryKey(),
+  stageNumber: integer('stage_number').notNull(),
+  title: text('title').notNull(),
+  description: text('description'),
+  availableDate: timestamp('available_date', {
+    mode: 'date',
+    withTimezone: true
+  }),
+  createdAt: timestamp('created_at').defaultNow(),
+  updatedAt: timestamp('updated_at').$onUpdate(getNow)
+});
+
+export const userStageProgress = pgTable('user_stage_progress', {
+  id: text('id').primaryKey(),
+  userId: text('user_id')
+    .references(() => user.id, { onDelete: 'cascade' }),
+  stageId: serial('stage_id')
+    .references(() => stage.id, { onDelete: 'cascade' }),
+  status: userStageProgressStatusEnum('status').default('locked').notNull(),
+  score: integer('score'),
+  completedAt: timestamp('completed_at'),
+}, (table) => [
+    unique('user_stage_unique')
+      .on(table.userId, table.stageId)
+  ]);
+
+export const material = pgTable('material', {
+  id: serial('id').primaryKey(),
+  stageId: serial('stage_id')
+    .references(() => stage.id, { onDelete: 'cascade' }),
+  profile: text('profile')
+});
+
+export const dialog = pgTable('dialog', {
+  id: serial('id').primaryKey(),
+  materialId: serial('material_id')
+    .references(() => material.id, { onDelete: 'cascade' }),
+  content: text('content'),
+  order: integer('order').notNull()
+});
+
+export const quiz = pgTable('quiz', {
+  id: serial('id').primaryKey(),
+  stageId: serial('stage_id')
+    .references(() => stage.id, { onDelete: 'cascade' }),
+});
+
+export const question = pgTable('question', {
+  id: serial('id').primaryKey(),
+  quizId: serial('quiz_id')
+    .references(() => quiz.id, { onDelete: 'cascade' }),
+  question: text('question').notNull(),
+  order: integer('order').notNull(),
+});
+
+export const answerOption = pgTable('answer_option', {
+  id: serial('id').primaryKey(),
+  questionId: serial('question_id')
+    .references(() => question.id),
+  option: text('option').notNull(),
+  optionStatus: boolean('option_status').notNull()
+})
+
+/**
+ * Relations
+ */
+export const stageRelation = relations(stage, ({ many }) => ({
+  userStageProgresses: many(userStageProgress),
+  materials: many(material),
+  quizzes: many(quiz)
+}));
+
+export const quizRelation = relations(quiz, ({ many }) => ({
+  questions: many(question)
+}));
+
+export const questionRelation = relations(question, ({ many }) => ({
+  answerOptions: many(answerOption)
+}));
+
+export const materialRelation = relations(material, ({ many }) => ({
+  dialogs: many(dialog)
+}));
