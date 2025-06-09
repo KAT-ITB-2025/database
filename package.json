@@ -19,7 +19,8 @@
   "scripts": {
     "build": "tsup src/schema/index.ts --dts --format cjs,esm --out-dir dist && drizzle-kit generate",
     "view": "node --experimental-specifier-resolution=node --loader ts-node/esm src/dbml.ts",
-    "generate": "drizzle-kit generate"
+    "generate": "drizzle-kit generate",
+    "migrate": "drizzle-kit migrate"
   },
   "dependencies": {
     "@paralleldrive/cuid2": "^2.2.2",

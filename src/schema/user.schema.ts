@@ -15,6 +15,9 @@ export const user = pgTable('user', {
   idLine: text('id_line'),
   idDiscord: text('id_discord'),
   idInstagram: text('id_instagram'),
+  fakultas: text('fakultas'),
+  prodi: text('prodi'),
+  kelompok: text('kelompok'),
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').$onUpdate(getNow),
 });
