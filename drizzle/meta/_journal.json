@@ -15,6 +15,13 @@
       "when": 1749465645368,
       "tag": "0001_first_tenebrous",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1749491146429,
+      "tag": "0002_premium_zodiak",
+      "breakpoints": true
     }
   ]
 }
