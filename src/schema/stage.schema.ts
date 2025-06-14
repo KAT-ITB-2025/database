@@ -1,6 +1,6 @@
 import { relations } from 'drizzle-orm';
 import { pgEnum, pgTable, text, timestamp, integer, unique, serial, boolean } from 'drizzle-orm/pg-core';
-import { getNow } from '~/drizzle-schema-util';
+import { getNow } from '../drizzle-schema-util';
 import { user } from './user.schema';
 
 export const userStageProgressStatusEnum = pgEnum('user_stage_progress_enum', [
@@ -82,14 +82,50 @@ export const stageRelation = relations(stage, ({ many }) => ({
   quizzes: many(quiz)
 }));
 
-export const quizRelation = relations(quiz, ({ many }) => ({
-  questions: many(question)
+export const userStageProgressRelation = relations(userStageProgress, ({ one }) => ({
+  stage: one(stage, {
+    fields: [userStageProgress.stageId],
+    references: [stage.id],
+  })
+}));
+
+export const quizRelation = relations(quiz, ({ one, many }) => ({
+  questions: many(question),
+  stage: one(stage, {
+    fields: [quiz.stageId],
+    references: [stage.id],
+  }),
+}));
+
+export const questionsRelation = relations(question, ({ one }) => ({
+  quiz: one(quiz, {
+    fields: [question.quizId],
+    references: [quiz.id],
+  })
 }));
 
 export const questionRelation = relations(question, ({ many }) => ({
   answerOptions: many(answerOption)
 }));
 
-export const materialRelation = relations(material, ({ many }) => ({
-  dialogs: many(dialog)
+export const answerOptionRelation = relations(answerOption, ({ one }) => ({
+  question: one(question, {
+    fields: [answerOption.questionId],
+    references: [question.id],
+  })
+}));
+
+export const materialRelation = relations(material, ({ one, many }) => ({
+  dialogs: many(dialog),
+  stage: one(stage, {
+    fields: [material.stageId],
+    references: [stage.id],
+  })
+}));
+
+export const dialogRelation = relations(dialog, ({ one }) => ({
+  material: one(material, {
+    fields: [dialog.materialId],
+    references: [material.id],
+  })
 }));
