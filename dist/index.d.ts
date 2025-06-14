@@ -358,7 +358,7 @@ declare const account: drizzle_orm_pg_core.PgTableWithColumns<{
     dialect: "pg";
 }>;
 declare const accountRelation: drizzle_orm.Relations<"account", {
-    user: drizzle_orm.One<"user", false>;
+    user: drizzle_orm.One<"user", true>;
 }>;
 
 declare const mediaBucketEnum: drizzle_orm_pg_core.PgEnum<["core", "oskm", "dikpus", "profile", "submission-dikpus", "submission-oskm", "other"]>;
@@ -1074,14 +1074,28 @@ declare const stageRelation: drizzle_orm.Relations<"stage", {
     materials: drizzle_orm.Many<"material">;
     quizzes: drizzle_orm.Many<"quiz">;
 }>;
+declare const userStageProgressRelation: drizzle_orm.Relations<"user_stage_progress", {
+    stage: drizzle_orm.One<"stage", true>;
+}>;
 declare const quizRelation: drizzle_orm.Relations<"quiz", {
     questions: drizzle_orm.Many<"question">;
+    stage: drizzle_orm.One<"stage", true>;
+}>;
+declare const questionsRelation: drizzle_orm.Relations<"question", {
+    quiz: drizzle_orm.One<"quiz", true>;
 }>;
 declare const questionRelation: drizzle_orm.Relations<"question", {
     answerOptions: drizzle_orm.Many<"answer_option">;
 }>;
+declare const answerOptionRelation: drizzle_orm.Relations<"answer_option", {
+    question: drizzle_orm.One<"question", true>;
+}>;
 declare const materialRelation: drizzle_orm.Relations<"material", {
     dialogs: drizzle_orm.Many<"dialog">;
+    stage: drizzle_orm.One<"stage", true>;
+}>;
+declare const dialogRelation: drizzle_orm.Relations<"dialog", {
+    material: drizzle_orm.One<"material", true>;
 }>;
 
-export { account, accountRelation, accountRoleEnum, answerOption, dialog, material, materialRelation, media, mediaBucketEnum, question, questionRelation, quiz, quizRelation, stage, stageRelation, user, userStageProgress, userStageProgressStatusEnum };
+export { account, accountRelation, accountRoleEnum, answerOption, answerOptionRelation, dialog, dialogRelation, material, materialRelation, media, mediaBucketEnum, question, questionRelation, questionsRelation, quiz, quizRelation, stage, stageRelation, user, userStageProgress, userStageProgressRelation, userStageProgressStatusEnum };
