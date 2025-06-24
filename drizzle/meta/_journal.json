@@ -22,6 +22,13 @@
       "when": 1749491146429,
       "tag": "0002_premium_zodiak",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1750743190002,
+      "tag": "0003_supreme_triathlon",
+      "breakpoints": true
     }
   ]
 }
