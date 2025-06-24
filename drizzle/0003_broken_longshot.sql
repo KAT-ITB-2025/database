@@ -1,5 +1,5 @@
 CREATE TABLE "kelas" (
-	"id_kelas" serial PRIMARY KEY NOT NULL,
+	"id_kelas" text PRIMARY KEY NOT NULL,
 	"kuota" integer NOT NULL,
 	"judul" text NOT NULL,
 	"deskripsi" text NOT NULL,
@@ -7,20 +7,20 @@ CREATE TABLE "kelas" (
 );
 --> statement-breakpoint
 CREATE TABLE "pemilihan_kelas" (
-	"user_id" integer NOT NULL,
-	"kelas_id" integer NOT NULL,
+	"user_id" text NOT NULL,
+	"kelas_id" text NOT NULL,
 	"waktu" timestamp DEFAULT now() NOT NULL,
 	"prioritas" integer NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "peserta_kelas" (
-	"user_id" integer NOT NULL,
-	"kelas_id" integer NOT NULL
+	"user_id" text NOT NULL,
+	"kelas_id" text NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "nilai_pendikpus" (
-	"user_id" integer NOT NULL,
-	"pendikpus_id" integer NOT NULL,
+	"user_id" text NOT NULL,
+	"pendikpus_id" text NOT NULL,
 	"nilai" real NOT NULL
 );
 --> statement-breakpoint

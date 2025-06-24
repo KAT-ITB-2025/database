@@ -3,7 +3,7 @@ import { pgTable, integer, serial, text, timestamp } from 'drizzle-orm/pg-core';
 import { user } from './user.schema';
 
 export const kelas = pgTable('kelas', {
-  id_kelas: serial('id_kelas').primaryKey(),
+  id_kelas: text('id_kelas').primaryKey(),
   kuota: integer('kuota').notNull(),
   judul: text('judul').notNull(),
   deskripsi: text('deskripsi').notNull(),
@@ -11,11 +11,11 @@ export const kelas = pgTable('kelas', {
 });
 
 export const pemilihan_kelas = pgTable('pemilihan_kelas', {
-  user_id: integer('user_id')
+  user_id: text('user_id')
     .notNull()
     .references(() => user.id, { onDelete: 'cascade' }),
 
-  kelas_id: integer('kelas_id')
+  kelas_id: text('kelas_id')
     .notNull()
     .references(() => kelas.id_kelas, { onDelete: 'cascade' }),
 
@@ -24,11 +24,11 @@ export const pemilihan_kelas = pgTable('pemilihan_kelas', {
 });
 
 export const peserta_kelas = pgTable('peserta_kelas', {
-  user_id: integer('user_id')
+  user_id: text('user_id')
     .notNull()
     .references(() => user.id, { onDelete: 'cascade' }),
 
-  kelas_id: integer('kelas_id')
+  kelas_id: text('kelas_id')
     .notNull()
     .references(() => kelas.id_kelas, { onDelete: 'cascade' }),
 });
