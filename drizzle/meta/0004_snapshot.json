@@ -1,5 +1,5 @@
 {
-  "id": "4d88d1af-5797-495f-9055-0123393df78f",
+  "id": "804e1f66-e38e-42f8-b6a3-27517f975ac4",
   "prevId": "b4242d76-aa56-4b9d-80e6-f553a09717d2",
   "version": "7",
   "dialect": "postgresql",
@@ -806,6 +806,64 @@
           ],
           "columnsTo": [
             "id_kelas"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.nilai_pendikpus": {
+      "name": "nilai_pendikpus",
+      "schema": "",
+      "columns": {
+        "user_id": {
+          "name": "user_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pendikpus_id": {
+          "name": "pendikpus_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "nilai": {
+          "name": "nilai",
+          "type": "real",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "nilai_pendikpus_user_id_user_id_fk": {
+          "name": "nilai_pendikpus_user_id_user_id_fk",
+          "tableFrom": "nilai_pendikpus",
+          "tableTo": "user",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        },
+        "nilai_pendikpus_pendikpus_id_user_id_fk": {
+          "name": "nilai_pendikpus_pendikpus_id_user_id_fk",
+          "tableFrom": "nilai_pendikpus",
+          "tableTo": "user",
+          "columnsFrom": [
+            "pendikpus_id"
+          ],
+          "columnsTo": [
+            "id"
           ],
           "onDelete": "cascade",
           "onUpdate": "no action"
