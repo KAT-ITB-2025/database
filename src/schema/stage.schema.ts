@@ -1,5 +1,5 @@
 import { relations } from 'drizzle-orm';
-import { pgEnum, pgTable, text, timestamp, integer, unique, serial, boolean } from 'drizzle-orm/pg-core';
+import { pgEnum, pgTable, text, timestamp, integer, unique, serial, boolean, real } from 'drizzle-orm/pg-core';
 import { getNow } from '../drizzle-schema-util';
 import { user } from './user.schema';
 
@@ -18,6 +18,11 @@ export const stage = pgTable('stage', {
     mode: 'date',
     withTimezone: true
   }),
+  deadlineDate: timestamp('deadline_date', {
+    mode: 'date',
+    withTimezone: true
+  }),
+  quizWeight: real('quiz_weight').default(0.0).notNull(),
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').$onUpdate(getNow)
 });
@@ -28,13 +33,15 @@ export const userStageProgress = pgTable('user_stage_progress', {
     .references(() => user.id, { onDelete: 'cascade' }),
   stageId: serial('stage_id')
     .references(() => stage.id, { onDelete: 'cascade' }),
-  status: userStageProgressStatusEnum('status').default('locked').notNull(),
+  status: userStageProgressStatusEnum('status').default('in_progress').notNull(),
   score: integer('score'),
   completedAt: timestamp('completed_at'),
+  mentorInput: integer('mentor_input'),
+  updatedAt: timestamp('updated_at').$onUpdate(getNow)
 }, (table) => [
-    unique('user_stage_unique')
-      .on(table.userId, table.stageId)
-  ]);
+  unique('user_stage_unique')
+    .on(table.userId, table.stageId)
+]);
 
 export const material = pgTable('material', {
   id: serial('id').primaryKey(),
