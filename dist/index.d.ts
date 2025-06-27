@@ -630,6 +630,57 @@ declare const stage: drizzle_orm_pg_core.PgTableWithColumns<{
             identity: undefined;
             generated: undefined;
         }, {}, {}>;
+        roleplayWeight: drizzle_orm_pg_core.PgColumn<{
+            name: "roleplay_weight";
+            tableName: "stage";
+            dataType: "number";
+            columnType: "PgReal";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        lgdWeight: drizzle_orm_pg_core.PgColumn<{
+            name: "lgd_weight";
+            tableName: "stage";
+            dataType: "number";
+            columnType: "PgReal";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        stageWeight: drizzle_orm_pg_core.PgColumn<{
+            name: "stage_weight";
+            tableName: "stage";
+            dataType: "number";
+            columnType: "PgReal";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
         createdAt: drizzle_orm_pg_core.PgColumn<{
             name: "created_at";
             tableName: "stage";
@@ -739,23 +790,6 @@ declare const userStageProgress: drizzle_orm_pg_core.PgTableWithColumns<{
             identity: undefined;
             generated: undefined;
         }, {}, {}>;
-        score: drizzle_orm_pg_core.PgColumn<{
-            name: "score";
-            tableName: "user_stage_progress";
-            dataType: "number";
-            columnType: "PgInteger";
-            data: number;
-            driverParam: string | number;
-            notNull: false;
-            hasDefault: false;
-            isPrimaryKey: false;
-            isAutoincrement: false;
-            hasRuntimeDefault: false;
-            enumValues: undefined;
-            baseColumn: never;
-            identity: undefined;
-            generated: undefined;
-        }, {}, {}>;
         completedAt: drizzle_orm_pg_core.PgColumn<{
             name: "completed_at";
             tableName: "user_stage_progress";
@@ -773,8 +807,42 @@ declare const userStageProgress: drizzle_orm_pg_core.PgTableWithColumns<{
             identity: undefined;
             generated: undefined;
         }, {}, {}>;
-        mentorInput: drizzle_orm_pg_core.PgColumn<{
-            name: "mentor_input";
+        quizScore: drizzle_orm_pg_core.PgColumn<{
+            name: "quiz_score";
+            tableName: "user_stage_progress";
+            dataType: "number";
+            columnType: "PgInteger";
+            data: number;
+            driverParam: string | number;
+            notNull: false;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        roleplayScore: drizzle_orm_pg_core.PgColumn<{
+            name: "roleplay_score";
+            tableName: "user_stage_progress";
+            dataType: "number";
+            columnType: "PgInteger";
+            data: number;
+            driverParam: string | number;
+            notNull: false;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        lgdScore: drizzle_orm_pg_core.PgColumn<{
+            name: "lgd_score";
             tableName: "user_stage_progress";
             dataType: "number";
             columnType: "PgInteger";

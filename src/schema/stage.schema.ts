@@ -22,7 +22,10 @@ export const stage = pgTable('stage', {
     mode: 'date',
     withTimezone: true
   }),
-  quizWeight: real('quiz_weight').default(0.0).notNull(),
+  quizWeight: real('quiz_weight').default(1.0).notNull(),           // bobot kuis
+  roleplayWeight: real('roleplay_weight').default(0.0).notNull(),   // bobot input roleplay
+  lgdWeight: real('lgd_weight').default(0.0).notNull(),             // bobot input lgd
+  stageWeight: real('stage_weight').default(0.0).notNull(),         // bobot profile (a.k.a. stage) untuk total nilai
   createdAt: timestamp('created_at').defaultNow(),
   updatedAt: timestamp('updated_at').$onUpdate(getNow)
 });
@@ -34,9 +37,10 @@ export const userStageProgress = pgTable('user_stage_progress', {
   stageId: serial('stage_id')
     .references(() => stage.id, { onDelete: 'cascade' }),
   status: userStageProgressStatusEnum('status').default('in_progress').notNull(),
-  score: integer('score'),
   completedAt: timestamp('completed_at'),
-  mentorInput: integer('mentor_input'),
+  quizScore: integer('quiz_score'),           // score kuis
+  roleplayScore: integer('roleplay_score'),   // score roleplay (input pendikpus)
+  lgdScore: integer('lgd_score'),             // score lgd (input pendikpus)
   updatedAt: timestamp('updated_at').$onUpdate(getNow)
 }, (table) => [
   unique('user_stage_unique')
