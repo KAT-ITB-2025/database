@@ -1,3 +1,4 @@
+import { relations } from 'drizzle-orm';
 import { pgEnum, pgTable, text, timestamp } from 'drizzle-orm/pg-core';
 
 import { user } from './user.schema';
@@ -29,3 +30,17 @@ export const media = pgTable('media', {
     .notNull()
     .defaultNow(),
 });
+
+export const handbook = pgTable('handbook', {
+  mediaId: text('media_id')
+    .primaryKey()
+    .references(() => media.id),
+  title: text('title')
+});
+
+export const mediaRelation = relations(media, ({ one }) => ({
+  handbook: one(handbook, {
+    fields: [media.id],
+    references: [handbook.mediaId],
+  })
+}));

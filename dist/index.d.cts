@@ -505,6 +505,50 @@ declare const media: drizzle_orm_pg_core.PgTableWithColumns<{
     };
     dialect: "pg";
 }>;
+declare const handbook: drizzle_orm_pg_core.PgTableWithColumns<{
+    name: "handbook";
+    schema: undefined;
+    columns: {
+        mediaId: drizzle_orm_pg_core.PgColumn<{
+            name: "media_id";
+            tableName: "handbook";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: true;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        title: drizzle_orm_pg_core.PgColumn<{
+            name: "title";
+            tableName: "handbook";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+    };
+    dialect: "pg";
+}>;
+declare const mediaRelation: drizzle_orm.Relations<"media", {
+    handbook: drizzle_orm.One<"handbook", true>;
+}>;
 
 declare const userStageProgressStatusEnum: drizzle_orm_pg_core.PgEnum<["completed", "in_progress", "locked"]>;
 declare const stage: drizzle_orm_pg_core.PgTableWithColumns<{
@@ -1443,4 +1487,4 @@ declare const peserta_kelas: drizzle_orm_pg_core.PgTableWithColumns<{
     dialect: "pg";
 }>;
 
-export { account, accountRelation, accountRoleEnum, answerOption, answerOptionRelation, dialog, dialogRelation, kelas, material, materialRelation, media, mediaBucketEnum, pemilihan_kelas, peserta_kelas, question, questionRelation, questionsRelation, quiz, quizRelation, stage, stageRelation, user, userStageProgress, userStageProgressRelation, userStageProgressStatusEnum };
+export { account, accountRelation, accountRoleEnum, answerOption, answerOptionRelation, dialog, dialogRelation, handbook, kelas, material, materialRelation, media, mediaBucketEnum, mediaRelation, pemilihan_kelas, peserta_kelas, question, questionRelation, questionsRelation, quiz, quizRelation, stage, stageRelation, user, userStageProgress, userStageProgressRelation, userStageProgressStatusEnum };
