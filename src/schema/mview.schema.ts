@@ -1,7 +1,7 @@
 import { pgMaterializedView, real, text, integer, uniqueIndex } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
-export const userStageRecap = pgMaterializedView('user_stage_recap', {
+export const userStageRecaps = pgMaterializedView('user_stage_recaps', {
   userId: text('user_id').primaryKey(),
   nim: text('nim'),
   fullName: text('full_name'),

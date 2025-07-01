@@ -153,7 +153,7 @@ ALTER TABLE "pemilihan_kelas" ADD CONSTRAINT "pemilihan_kelas_user_id_user_id_fk
 ALTER TABLE "pemilihan_kelas" ADD CONSTRAINT "pemilihan_kelas_kelas_id_kelas_id_kelas_fk" FOREIGN KEY ("kelas_id") REFERENCES "public"."kelas"("id_kelas") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "peserta_kelas" ADD CONSTRAINT "peserta_kelas_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "peserta_kelas" ADD CONSTRAINT "peserta_kelas_kelas_id_kelas_id_kelas_fk" FOREIGN KEY ("kelas_id") REFERENCES "public"."kelas"("id_kelas") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
-CREATE MATERIALIZED VIEW "public"."user_stage_recap" AS (
+CREATE MATERIALIZED VIEW "public"."user_stage_recaps" AS (
   SELECT
     u.id AS user_id,
     u.nim,

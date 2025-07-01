@@ -1,5 +1,5 @@
 {
-  "id": "1f635019-ef68-4524-8cf4-d53576eae4d2",
+  "id": "d234ba93-d948-44be-88db-00953730fa98",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -1041,7 +1041,7 @@
   "roles": {},
   "policies": {},
   "views": {
-    "public.user_stage_recap": {
+    "public.user_stage_recaps": {
       "columns": {
         "user_id": {
           "name": "user_id",
@@ -1177,7 +1177,7 @@
         }
       },
       "definition": "\n  SELECT\n    u.id AS user_id,\n    u.nim,\n    u.full_name,\n    u.kelompok,\n    u.fakultas,\n    u.prodi,\n\n    usp1.quiz_score AS quiz_1,\n    ues1.roleplay_score AS roleplay_1,\n    ues1.lgd_score AS lgd_1,\n\n    usp2.quiz_score AS quiz_2,\n    ues2.roleplay_score AS roleplay_2,\n    ues2.lgd_score AS lgd_2,\n\n    usp3.quiz_score AS quiz_3,\n    ues3.roleplay_score AS roleplay_3,\n    ues3.lgd_score AS lgd_3,\n\n    usp4.quiz_score AS quiz_4,\n    ues4.roleplay_score AS roleplay_4,\n    ues4.lgd_score AS lgd_4,\n\n    usp5.quiz_score AS quiz_5,\n    ues5.roleplay_score AS roleplay_5,\n    ues5.lgd_score AS lgd_5,\n\n    (\n      COALESCE(usp1.quiz_score, 0) * s1.quiz_weight +\n      COALESCE(ues1.roleplay_score, 0) * s1.roleplay_weight +\n      COALESCE(ues1.lgd_score, 0) * s1.lgd_weight\n    ) * s1.stage_weight +\n    (\n      COALESCE(usp2.quiz_score, 0) * s2.quiz_weight +\n      COALESCE(ues2.roleplay_score, 0) * s2.roleplay_weight +\n      COALESCE(ues2.lgd_score, 0) * s2.lgd_weight\n    ) * s2.stage_weight +\n    (\n      COALESCE(usp3.quiz_score, 0) * s3.quiz_weight +\n      COALESCE(ues3.roleplay_score, 0) * s3.roleplay_weight +\n      COALESCE(ues3.lgd_score, 0) * s3.lgd_weight\n    ) * s3.stage_weight +\n    (\n      COALESCE(usp4.quiz_score, 0) * s4.quiz_weight +\n      COALESCE(ues4.roleplay_score, 0) * s4.roleplay_weight +\n      COALESCE(ues4.lgd_score, 0) * s4.lgd_weight\n    ) * s4.stage_weight +\n    (\n      COALESCE(usp5.quiz_score, 0) * s5.quiz_weight +\n      COALESCE(ues5.roleplay_score, 0) * s5.roleplay_weight +\n      COALESCE(ues5.lgd_score, 0) * s5.lgd_weight\n    ) * s5.stage_weight AS total_score\n\n  FROM \"user\" u\n\n  JOIN user_stage_progress usp1 ON usp1.user_id = u.id AND usp1.stage_id = 1\n  LEFT JOIN user_extended_score ues1 ON ues1.id = usp1.id\n  JOIN stage s1 ON s1.id = usp1.stage_id\n\n  JOIN user_stage_progress usp2 ON usp2.user_id = u.id AND usp2.stage_id = 2\n  LEFT JOIN user_extended_score ues2 ON ues2.id = usp2.id\n  JOIN stage s2 ON s2.id = usp2.stage_id\n\n  JOIN user_stage_progress usp3 ON usp3.user_id = u.id AND usp3.stage_id = 3\n  LEFT JOIN user_extended_score ues3 ON ues3.id = usp3.id\n  JOIN stage s3 ON s3.id = usp3.stage_id\n\n  JOIN user_stage_progress usp4 ON usp4.user_id = u.id AND usp4.stage_id = 4\n  LEFT JOIN user_extended_score ues4 ON ues4.id = usp4.id\n  JOIN stage s4 ON s4.id = usp4.stage_id\n\n  JOIN user_stage_progress usp5 ON usp5.user_id = u.id AND usp5.stage_id = 5\n  LEFT JOIN user_extended_score ues5 ON ues5.id = usp5.id\n  JOIN stage s5 ON s5.id = usp5.stage_id\n",
-      "name": "user_stage_recap",
+      "name": "user_stage_recaps",
       "schema": "public",
       "isExisting": false,
       "materialized": true

@@ -17,7 +17,7 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "scripts": {
-    "build": "tsup src/schema/index.ts --dts --format cjs,esm --out-dir dist && drizzle-kit generate",
+    "build": "tsup src/schema/index.ts --dts --format cjs,esm --out-dir dist",
     "view": "node --experimental-specifier-resolution=node --loader ts-node/esm src/dbml.ts",
     "generate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate"
