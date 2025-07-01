@@ -868,9 +868,101 @@ declare const userStageProgress: drizzle_orm_pg_core.PgTableWithColumns<{
             identity: undefined;
             generated: undefined;
         }, {}, {}>;
+        updatedAt: drizzle_orm_pg_core.PgColumn<{
+            name: "updated_at";
+            tableName: "user_stage_progress";
+            dataType: "date";
+            columnType: "PgTimestamp";
+            data: Date;
+            driverParam: string;
+            notNull: false;
+            hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+    };
+    dialect: "pg";
+}>;
+declare const userExtendedScore: drizzle_orm_pg_core.PgTableWithColumns<{
+    name: "user_extended_score";
+    schema: undefined;
+    columns: {
+        id: drizzle_orm_pg_core.PgColumn<{
+            name: "id";
+            tableName: "user_extended_score";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: true;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        userId: drizzle_orm_pg_core.PgColumn<{
+            name: "user_id";
+            tableName: "user_extended_score";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        stageId: drizzle_orm_pg_core.PgColumn<{
+            name: "stage_id";
+            tableName: "user_extended_score";
+            dataType: "number";
+            columnType: "PgSerial";
+            data: number;
+            driverParam: number;
+            notNull: true;
+            hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        stageNumber: drizzle_orm_pg_core.PgColumn<{
+            name: "stage_number";
+            tableName: "user_extended_score";
+            dataType: "number";
+            columnType: "PgInteger";
+            data: number;
+            driverParam: string | number;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
         roleplayScore: drizzle_orm_pg_core.PgColumn<{
             name: "roleplay_score";
-            tableName: "user_stage_progress";
+            tableName: "user_extended_score";
             dataType: "number";
             columnType: "PgInteger";
             data: number;
@@ -887,30 +979,13 @@ declare const userStageProgress: drizzle_orm_pg_core.PgTableWithColumns<{
         }, {}, {}>;
         lgdScore: drizzle_orm_pg_core.PgColumn<{
             name: "lgd_score";
-            tableName: "user_stage_progress";
+            tableName: "user_extended_score";
             dataType: "number";
             columnType: "PgInteger";
             data: number;
             driverParam: string | number;
             notNull: false;
             hasDefault: false;
-            isPrimaryKey: false;
-            isAutoincrement: false;
-            hasRuntimeDefault: false;
-            enumValues: undefined;
-            baseColumn: never;
-            identity: undefined;
-            generated: undefined;
-        }, {}, {}>;
-        updatedAt: drizzle_orm_pg_core.PgColumn<{
-            name: "updated_at";
-            tableName: "user_stage_progress";
-            dataType: "date";
-            columnType: "PgTimestamp";
-            data: Date;
-            driverParam: string;
-            notNull: false;
-            hasDefault: true;
             isPrimaryKey: false;
             isAutoincrement: false;
             hasRuntimeDefault: false;
@@ -1278,6 +1353,7 @@ declare const dialogRelation: drizzle_orm.Relations<"dialog", {
     material: drizzle_orm.One<"material", true>;
 }>;
 
+declare const kelasTypeEnum: drizzle_orm_pg_core.PgEnum<["skill", "issue"]>;
 declare const kelas: drizzle_orm_pg_core.PgTableWithColumns<{
     name: "kelas";
     schema: undefined;
@@ -1363,6 +1439,23 @@ declare const kelas: drizzle_orm_pg_core.PgTableWithColumns<{
             isAutoincrement: false;
             hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        type: drizzle_orm_pg_core.PgColumn<{
+            name: "type";
+            tableName: "kelas";
+            dataType: "string";
+            columnType: "PgEnumColumn";
+            data: "skill" | "issue";
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: ["skill", "issue"];
             baseColumn: never;
             identity: undefined;
             generated: undefined;
@@ -1487,4 +1580,4 @@ declare const peserta_kelas: drizzle_orm_pg_core.PgTableWithColumns<{
     dialect: "pg";
 }>;
 
-export { account, accountRelation, accountRoleEnum, answerOption, answerOptionRelation, dialog, dialogRelation, handbook, kelas, material, materialRelation, media, mediaBucketEnum, mediaRelation, pemilihan_kelas, peserta_kelas, question, questionRelation, questionsRelation, quiz, quizRelation, stage, stageRelation, user, userStageProgress, userStageProgressRelation, userStageProgressStatusEnum };
+export { account, accountRelation, accountRoleEnum, answerOption, answerOptionRelation, dialog, dialogRelation, handbook, kelas, kelasTypeEnum, material, materialRelation, media, mediaBucketEnum, mediaRelation, pemilihan_kelas, peserta_kelas, question, questionRelation, questionsRelation, quiz, quizRelation, stage, stageRelation, user, userExtendedScore, userStageProgress, userStageProgressRelation, userStageProgressStatusEnum };
