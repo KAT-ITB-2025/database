@@ -38,14 +38,26 @@ export const userStageProgress = pgTable('user_stage_progress', {
     .references(() => stage.id, { onDelete: 'cascade' }),
   status: userStageProgressStatusEnum('status').default('in_progress').notNull(),
   completedAt: timestamp('completed_at'),
-  quizScore: integer('quiz_score'),           // score kuis
-  roleplayScore: integer('roleplay_score'),   // score roleplay (input pendikpus)
-  lgdScore: integer('lgd_score'),             // score lgd (input pendikpus)
+  quizScore: integer('quiz_score'),
   updatedAt: timestamp('updated_at').$onUpdate(getNow)
 }, (table) => [
   unique('user_stage_unique')
     .on(table.userId, table.stageId)
 ]);
+
+// Horizontal splitting for table userStageProgress
+export const userExtendedScore = pgTable('user_extended_score', {
+  id: text('id')
+    .primaryKey()
+    .references(() => userStageProgress.id),
+  userId: text('user_id')
+    .references(() => user.id, { onDelete: 'cascade' }),
+  stageId: serial('stage_id')
+    .references(() => stage.id, { onDelete: 'cascade' }),
+  stageNumber: integer('stage_number').notNull(),
+  roleplayScore: integer('roleplay_score'),
+  lgdScore: integer('lgd_score'),
+});
 
 export const material = pgTable('material', {
   id: serial('id').primaryKey(),
