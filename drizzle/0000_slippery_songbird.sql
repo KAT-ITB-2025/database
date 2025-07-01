@@ -210,25 +210,25 @@ CREATE MATERIALIZED VIEW "public"."user_stage_recaps" AS (
 
   FROM "user" u
 
-  JOIN user_stage_progress usp1 ON usp1.user_id = u.id AND usp1.stage_id = 1
+  JOIN user_stage_progress usp1 ON usp1.user_id = u.id
   LEFT JOIN user_extended_score ues1 ON ues1.id = usp1.id
-  JOIN stage s1 ON s1.id = usp1.stage_id
+  JOIN stage s1 ON s1.id = usp1.stage_id AND s1.stage_number = 1
 
-  JOIN user_stage_progress usp2 ON usp2.user_id = u.id AND usp2.stage_id = 2
+  JOIN user_stage_progress usp2 ON usp2.user_id = u.id
   LEFT JOIN user_extended_score ues2 ON ues2.id = usp2.id
-  JOIN stage s2 ON s2.id = usp2.stage_id
+  JOIN stage s2 ON s2.id = usp2.stage_id AND s2.stage_number = 2
 
-  JOIN user_stage_progress usp3 ON usp3.user_id = u.id AND usp3.stage_id = 3
+  JOIN user_stage_progress usp3 ON usp3.user_id = u.id
   LEFT JOIN user_extended_score ues3 ON ues3.id = usp3.id
-  JOIN stage s3 ON s3.id = usp3.stage_id
+  JOIN stage s3 ON s3.id = usp3.stage_id AND s3.stage_number = 3
 
-  JOIN user_stage_progress usp4 ON usp4.user_id = u.id AND usp4.stage_id = 4
+  JOIN user_stage_progress usp4 ON usp4.user_id = u.id
   LEFT JOIN user_extended_score ues4 ON ues4.id = usp4.id
-  JOIN stage s4 ON s4.id = usp4.stage_id
+  JOIN stage s4 ON s4.id = usp4.stage_id AND s4.stage_number = 4
 
-  JOIN user_stage_progress usp5 ON usp5.user_id = u.id AND usp5.stage_id = 5
+  JOIN user_stage_progress usp5 ON usp5.user_id = u.id
   LEFT JOIN user_extended_score ues5 ON ues5.id = usp5.id
-  JOIN stage s5 ON s5.id = usp5.stage_id
+  JOIN stage s5 ON s5.id = usp5.stage_id AND s5.stage_number = 5
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS "idx_user_stage_recap_user_id" ON "public"."user_stage_recaps"("user_id");
+CREATE UNIQUE INDEX idx_user_stage_recap_user_id ON "public"."user_stage_recaps"("user_id");
