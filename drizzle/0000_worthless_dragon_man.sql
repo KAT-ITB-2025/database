@@ -231,4 +231,4 @@ CREATE MATERIALIZED VIEW "public"."user_stage_recaps" AS (
   JOIN stage s5 ON s5.id = usp5.stage_id
 );
 
-CREATE UNIQUE INDEX IF NOT EXISTS "idx_user_stage_recap_user_id" ON "public"."user_stage_recap"("user_id");
+CREATE UNIQUE INDEX IF NOT EXISTS "idx_user_stage_recap_user_id" ON "public"."user_stage_recaps"("user_id");
