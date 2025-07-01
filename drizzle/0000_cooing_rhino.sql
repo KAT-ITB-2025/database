@@ -182,6 +182,24 @@ CREATE MATERIALIZED VIEW "public"."user_stage_recaps" AS (
     ues5.roleplay_score AS roleplay_5,
     ues5.lgd_score AS lgd_5,
 
+    COALESCE(usp1.quiz_score, 0) +
+    COALESCE(usp2.quiz_score, 0) +
+    COALESCE(usp3.quiz_score, 0) +
+    COALESCE(usp4.quiz_score, 0) +
+    COALESCE(usp5.quiz_score, 0) AS total_quiz_score,
+
+    COALESCE(ues1.roleplay_score, 0) +
+    COALESCE(ues2.roleplay_score, 0) +
+    COALESCE(ues3.roleplay_score, 0) +
+    COALESCE(ues4.roleplay_score, 0) +
+    COALESCE(ues5.roleplay_score, 0) AS total_roleplay_score,
+
+    COALESCE(ues1.lgd_score, 0) +
+    COALESCE(ues2.lgd_score, 0) +
+    COALESCE(ues3.lgd_score, 0) +
+    COALESCE(ues4.lgd_score, 0) +
+    COALESCE(ues5.lgd_score, 0) AS total_lgd_score,
+
     (
       COALESCE(usp1.quiz_score, 0) * s1.quiz_weight +
       COALESCE(ues1.roleplay_score, 0) * s1.roleplay_weight +
@@ -230,5 +248,3 @@ CREATE MATERIALIZED VIEW "public"."user_stage_recaps" AS (
   LEFT JOIN user_extended_score ues5 ON ues5.id = usp5.id
   JOIN stage s5 ON s5.id = usp5.stage_id AND s5.stage_number = 5
 );
-
-CREATE UNIQUE INDEX idx_user_stage_recap_user_id ON "public"."user_stage_recaps"("user_id");

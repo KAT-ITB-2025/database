@@ -1938,6 +1938,57 @@ declare const userStageRecaps: drizzle_orm_pg_core.PgMaterializedViewWithSelecti
         identity: undefined;
         generated: undefined;
     }, {}, {}>;
+    totalQuizScore: drizzle_orm_pg_core.PgColumn<{
+        name: "total_quiz_score";
+        tableName: "user_stage_recaps";
+        dataType: "number";
+        columnType: "PgInteger";
+        data: number;
+        driverParam: string | number;
+        notNull: false;
+        hasDefault: false;
+        isPrimaryKey: false;
+        isAutoincrement: false;
+        hasRuntimeDefault: false;
+        enumValues: undefined;
+        baseColumn: never;
+        identity: undefined;
+        generated: undefined;
+    }, {}, {}>;
+    totalRoleplayScore: drizzle_orm_pg_core.PgColumn<{
+        name: "total_roleplay_score";
+        tableName: "user_stage_recaps";
+        dataType: "number";
+        columnType: "PgInteger";
+        data: number;
+        driverParam: string | number;
+        notNull: false;
+        hasDefault: false;
+        isPrimaryKey: false;
+        isAutoincrement: false;
+        hasRuntimeDefault: false;
+        enumValues: undefined;
+        baseColumn: never;
+        identity: undefined;
+        generated: undefined;
+    }, {}, {}>;
+    totalLgdScore: drizzle_orm_pg_core.PgColumn<{
+        name: "total_lgd_score";
+        tableName: "user_stage_recaps";
+        dataType: "number";
+        columnType: "PgInteger";
+        data: number;
+        driverParam: string | number;
+        notNull: false;
+        hasDefault: false;
+        isPrimaryKey: false;
+        isAutoincrement: false;
+        hasRuntimeDefault: false;
+        enumValues: undefined;
+        baseColumn: never;
+        identity: undefined;
+        generated: undefined;
+    }, {}, {}>;
     totalScore: drizzle_orm_pg_core.PgColumn<{
         name: "total_score";
         tableName: "user_stage_recaps";

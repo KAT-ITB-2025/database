@@ -1,4 +1,4 @@
-import { pgMaterializedView, real, text, integer, uniqueIndex } from 'drizzle-orm/pg-core';
+import { pgMaterializedView, real, text, integer } from 'drizzle-orm/pg-core';
 import { sql } from 'drizzle-orm';
 
 export const userStageRecaps = pgMaterializedView('user_stage_recaps', {
@@ -29,6 +29,9 @@ export const userStageRecaps = pgMaterializedView('user_stage_recaps', {
   roleplay5: integer('roleplay_5'),
   lgd5: integer('lgd_5'),
 
+  totalQuizScore: integer('total_quiz_score'),
+  totalRoleplayScore: integer('total_roleplay_score'),
+  totalLgdScore: integer('total_lgd_score'),
   totalScore: real('total_score'),
 }).as(sql`
   SELECT
@@ -58,6 +61,24 @@ export const userStageRecaps = pgMaterializedView('user_stage_recaps', {
     usp5.quiz_score AS quiz_5,
     ues5.roleplay_score AS roleplay_5,
     ues5.lgd_score AS lgd_5,
+
+    COALESCE(usp1.quiz_score, 0) +
+    COALESCE(usp2.quiz_score, 0) +
+    COALESCE(usp3.quiz_score, 0) +
+    COALESCE(usp4.quiz_score, 0) +
+    COALESCE(usp5.quiz_score, 0) AS total_quiz_score,
+
+    COALESCE(ues1.roleplay_score, 0) +
+    COALESCE(ues2.roleplay_score, 0) +
+    COALESCE(ues3.roleplay_score, 0) +
+    COALESCE(ues4.roleplay_score, 0) +
+    COALESCE(ues5.roleplay_score, 0) AS total_roleplay_score,
+
+    COALESCE(ues1.lgd_score, 0) +
+    COALESCE(ues2.lgd_score, 0) +
+    COALESCE(ues3.lgd_score, 0) +
+    COALESCE(ues4.lgd_score, 0) +
+    COALESCE(ues5.lgd_score, 0) AS total_lgd_score,
 
     (
       COALESCE(usp1.quiz_score, 0) * s1.quiz_weight +
