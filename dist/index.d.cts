@@ -2006,6 +2006,40 @@ declare const userStageRecaps: drizzle_orm_pg_core.PgMaterializedViewWithSelecti
         identity: undefined;
         generated: undefined;
     }, {}, {}>;
+    rank: drizzle_orm_pg_core.PgColumn<{
+        name: "rank";
+        tableName: "user_stage_recaps";
+        dataType: "number";
+        columnType: "PgInteger";
+        data: number;
+        driverParam: string | number;
+        notNull: false;
+        hasDefault: false;
+        isPrimaryKey: false;
+        isAutoincrement: false;
+        hasRuntimeDefault: false;
+        enumValues: undefined;
+        baseColumn: never;
+        identity: undefined;
+        generated: undefined;
+    }, {}, {}>;
+    completedAt: drizzle_orm_pg_core.PgColumn<{
+        name: "completed_at";
+        tableName: "user_stage_recaps";
+        dataType: "date";
+        columnType: "PgTimestamp";
+        data: Date;
+        driverParam: string;
+        notNull: false;
+        hasDefault: false;
+        isPrimaryKey: false;
+        isAutoincrement: false;
+        hasRuntimeDefault: false;
+        enumValues: undefined;
+        baseColumn: never;
+        identity: undefined;
+        generated: undefined;
+    }, {}, {}>;
 }>;
 
 export { account, accountRelation, accountRoleEnum, answerOption, answerOptionRelation, dialog, dialogRelation, handbook, kelas, kelasTypeEnum, material, materialRelation, media, mediaBucketEnum, mediaRelation, pemilihan_kelas, peserta_kelas, question, questionRelation, questionsRelation, quiz, quizRelation, stage, stageRelation, user, userExtendedScore, userStageProgress, userStageProgressRelation, userStageProgressStatusEnum, userStageRecaps };
