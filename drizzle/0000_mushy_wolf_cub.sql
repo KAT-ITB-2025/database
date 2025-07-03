@@ -259,7 +259,7 @@ CREATE MATERIALIZED VIEW "public"."user_stage_recaps" AS (
   )
   SELECT 
     *,
-    DENSE_RANK() OVER (ORDER BY total_quiz_score DESC) as rank
+    DENSE_RANK() OVER (ORDER BY total_quiz_score DESC, completed_at ASC) as rank
   FROM user_scores
-  ORDER BY total_quiz_score DESC
+  ORDER BY total_quiz_score DESC, completed_at ASC
 );
