@@ -121,15 +121,15 @@ CREATE TABLE "kelas" (
 	"judul" text NOT NULL,
 	"deskripsi" text NOT NULL,
 	"pembicara" text NOT NULL,
-	"type" "kelas_type_enum" NOT NULL
+	"type" "kelas_type_enum" NOT NULL,
+	"link_zoom" text
 );
 --> statement-breakpoint
 CREATE TABLE "pemilihan_kelas" (
 	"user_id" text NOT NULL,
 	"kelas_id" text NOT NULL,
 	"waktu" timestamp DEFAULT now() NOT NULL,
-	"prioritas" integer NOT NULL,
-	"link_zoom" text
+	"prioritas" integer NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "peserta_kelas" (

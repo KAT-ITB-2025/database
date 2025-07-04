@@ -1,5 +1,5 @@
 {
-  "id": "1f8f59b1-2647-4299-82a8-b8f065f615d9",
+  "id": "9cc92811-e356-4396-b4a3-47f25a10ec1c",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -865,6 +865,12 @@
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true
+        },
+        "link_zoom": {
+          "name": "link_zoom",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
@@ -903,12 +909,6 @@
           "type": "integer",
           "primaryKey": false,
           "notNull": true
-        },
-        "link_zoom": {
-          "name": "link_zoom",
-          "type": "text",
-          "primaryKey": false,
-          "notNull": false
         }
       },
       "indexes": {},

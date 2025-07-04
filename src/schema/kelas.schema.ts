@@ -19,6 +19,7 @@ export const kelas = pgTable('kelas', {
   deskripsi: text('deskripsi').notNull(),
   pembicara: text('pembicara').notNull(),
   type: kelasTypeEnum('type').notNull(),
+  link_zoom: text('link_zoom'),
 });
 
 export const pemilihan_kelas = pgTable('pemilihan_kelas', {
@@ -32,7 +33,6 @@ export const pemilihan_kelas = pgTable('pemilihan_kelas', {
 
   waktu: timestamp('waktu').defaultNow().notNull(),
   prioritas: integer('prioritas').notNull(),
-  link_zoom: text('link_zoom'),
 });
 
 export const peserta_kelas = pgTable('peserta_kelas', {
