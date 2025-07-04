@@ -1535,6 +1535,23 @@ declare const pemilihan_kelas: drizzle_orm_pg_core.PgTableWithColumns<{
             identity: undefined;
             generated: undefined;
         }, {}, {}>;
+        link_zoom: drizzle_orm_pg_core.PgColumn<{
+            name: "link_zoom";
+            tableName: "pemilihan_kelas";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
     };
     dialect: "pg";
 }>;
@@ -1572,6 +1589,81 @@ declare const peserta_kelas: drizzle_orm_pg_core.PgTableWithColumns<{
             isAutoincrement: false;
             hasRuntimeDefault: false;
             enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+    };
+    dialect: "pg";
+}>;
+declare const user_submitted_kelas: drizzle_orm_pg_core.PgTableWithColumns<{
+    name: "user_submitted_kelas";
+    schema: undefined;
+    columns: {
+        user_id: drizzle_orm_pg_core.PgColumn<{
+            name: "user_id";
+            tableName: "user_submitted_kelas";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        submitted: drizzle_orm_pg_core.PgColumn<{
+            name: "submitted";
+            tableName: "user_submitted_kelas";
+            dataType: "boolean";
+            columnType: "PgBoolean";
+            data: boolean;
+            driverParam: boolean;
+            notNull: true;
+            hasDefault: true;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        waktu: drizzle_orm_pg_core.PgColumn<{
+            name: "waktu";
+            tableName: "user_submitted_kelas";
+            dataType: "date";
+            columnType: "PgTimestamp";
+            data: Date;
+            driverParam: string;
+            notNull: false;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: undefined;
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        type: drizzle_orm_pg_core.PgColumn<{
+            name: "type";
+            tableName: "user_submitted_kelas";
+            dataType: "string";
+            columnType: "PgEnumColumn";
+            data: "skill" | "issue";
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: ["skill", "issue"];
             baseColumn: never;
             identity: undefined;
             generated: undefined;
@@ -2042,4 +2134,4 @@ declare const userStageRecaps: drizzle_orm_pg_core.PgMaterializedViewWithSelecti
     }, {}, {}>;
 }>;
 
-export { account, accountRelation, accountRoleEnum, answerOption, answerOptionRelation, dialog, dialogRelation, handbook, kelas, kelasTypeEnum, material, materialRelation, media, mediaBucketEnum, mediaRelation, pemilihan_kelas, peserta_kelas, question, questionRelation, questionsRelation, quiz, quizRelation, stage, stageRelation, user, userExtendedScore, userStageProgress, userStageProgressRelation, userStageProgressStatusEnum, userStageRecaps };
+export { account, accountRelation, accountRoleEnum, answerOption, answerOptionRelation, dialog, dialogRelation, handbook, kelas, kelasTypeEnum, material, materialRelation, media, mediaBucketEnum, mediaRelation, pemilihan_kelas, peserta_kelas, question, questionRelation, questionsRelation, quiz, quizRelation, stage, stageRelation, user, userExtendedScore, userStageProgress, userStageProgressRelation, userStageProgressStatusEnum, userStageRecaps, user_submitted_kelas };

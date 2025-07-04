@@ -128,12 +128,20 @@ CREATE TABLE "pemilihan_kelas" (
 	"user_id" text NOT NULL,
 	"kelas_id" text NOT NULL,
 	"waktu" timestamp DEFAULT now() NOT NULL,
-	"prioritas" integer NOT NULL
+	"prioritas" integer NOT NULL,
+	"link_zoom" text
 );
 --> statement-breakpoint
 CREATE TABLE "peserta_kelas" (
 	"user_id" text NOT NULL,
 	"kelas_id" text NOT NULL
+);
+--> statement-breakpoint
+CREATE TABLE "user_submitted_kelas" (
+	"user_id" text NOT NULL,
+	"submitted" boolean DEFAULT false NOT NULL,
+	"waktu" timestamp,
+	"type" "kelas_type_enum" NOT NULL
 );
 --> statement-breakpoint
 ALTER TABLE "user" ADD CONSTRAINT "user_id_account_id_fk" FOREIGN KEY ("id") REFERENCES "public"."account"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
@@ -153,6 +161,7 @@ ALTER TABLE "pemilihan_kelas" ADD CONSTRAINT "pemilihan_kelas_user_id_user_id_fk
 ALTER TABLE "pemilihan_kelas" ADD CONSTRAINT "pemilihan_kelas_kelas_id_kelas_id_kelas_fk" FOREIGN KEY ("kelas_id") REFERENCES "public"."kelas"("id_kelas") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "peserta_kelas" ADD CONSTRAINT "peserta_kelas_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 ALTER TABLE "peserta_kelas" ADD CONSTRAINT "peserta_kelas_kelas_id_kelas_id_kelas_fk" FOREIGN KEY ("kelas_id") REFERENCES "public"."kelas"("id_kelas") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "user_submitted_kelas" ADD CONSTRAINT "user_submitted_kelas_user_id_user_id_fk" FOREIGN KEY ("user_id") REFERENCES "public"."user"("id") ON DELETE cascade ON UPDATE no action;--> statement-breakpoint
 CREATE MATERIALIZED VIEW "public"."user_stage_recaps" AS (
   WITH user_scores AS (
     SELECT

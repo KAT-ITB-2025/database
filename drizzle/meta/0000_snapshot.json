@@ -1,5 +1,5 @@
 {
-  "id": "3de9b2f5-bde3-4615-8e07-06e15c92ebde",
+  "id": "1f8f59b1-2647-4299-82a8-b8f065f615d9",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -903,6 +903,12 @@
           "type": "integer",
           "primaryKey": false,
           "notNull": true
+        },
+        "link_zoom": {
+          "name": "link_zoom",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},
@@ -981,6 +987,59 @@
           ],
           "columnsTo": [
             "id_kelas"
+          ],
+          "onDelete": "cascade",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.user_submitted_kelas": {
+      "name": "user_submitted_kelas",
+      "schema": "",
+      "columns": {
+        "user_id": {
+          "name": "user_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "submitted": {
+          "name": "submitted",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true,
+          "default": false
+        },
+        "waktu": {
+          "name": "waktu",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "type": {
+          "name": "type",
+          "type": "kelas_type_enum",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "user_submitted_kelas_user_id_user_id_fk": {
+          "name": "user_submitted_kelas_user_id_user_id_fk",
+          "tableFrom": "user_submitted_kelas",
+          "tableTo": "user",
+          "columnsFrom": [
+            "user_id"
+          ],
+          "columnsTo": [
+            "id"
           ],
           "onDelete": "cascade",
           "onUpdate": "no action"
