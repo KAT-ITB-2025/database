@@ -8,6 +8,13 @@
       "when": 1751598811378,
       "tag": "0000_small_angel",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1751791213525,
+      "tag": "0001_white_lilith",
+      "breakpoints": true
     }
   ]
 }
