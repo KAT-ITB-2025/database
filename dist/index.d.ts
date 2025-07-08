@@ -1731,6 +1731,123 @@ declare const links: drizzle_orm_pg_core.PgTableWithColumns<{
     dialect: "pg";
 }>;
 
+declare const divisi: drizzle_orm_pg_core.PgTableWithColumns<{
+    name: "divisi";
+    schema: undefined;
+    columns: {
+        id: drizzle_orm_pg_core.PgColumn<{
+            name: "id";
+            tableName: "divisi";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: true;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        nama: drizzle_orm_pg_core.PgColumn<{
+            name: "nama";
+            tableName: "divisi";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        link_grup: drizzle_orm_pg_core.PgColumn<{
+            name: "link_group";
+            tableName: "divisi";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+    };
+    dialect: "pg";
+}>;
+declare const announcement: drizzle_orm_pg_core.PgTableWithColumns<{
+    name: "announcement";
+    schema: undefined;
+    columns: {
+        id: drizzle_orm_pg_core.PgColumn<{
+            name: "id";
+            tableName: "announcement";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: true;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        user_id: drizzle_orm_pg_core.PgColumn<{
+            name: "user_id";
+            tableName: "announcement";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+        divisi_id: drizzle_orm_pg_core.PgColumn<{
+            name: "divisi_id";
+            tableName: "announcement";
+            dataType: "string";
+            columnType: "PgText";
+            data: string;
+            driverParam: string;
+            notNull: true;
+            hasDefault: false;
+            isPrimaryKey: false;
+            isAutoincrement: false;
+            hasRuntimeDefault: false;
+            enumValues: [string, ...string[]];
+            baseColumn: never;
+            identity: undefined;
+            generated: undefined;
+        }, {}, {}>;
+    };
+    dialect: "pg";
+}>;
+
 declare const userStageRecaps: drizzle_orm_pg_core.PgMaterializedViewWithSelection<"user_stage_recaps", false, {
     userId: drizzle_orm_pg_core.PgColumn<{
         name: "user_id";
@@ -2193,4 +2310,4 @@ declare const userStageRecaps: drizzle_orm_pg_core.PgMaterializedViewWithSelecti
     }, {}, {}>;
 }>;
 
-export { account, accountRelation, accountRoleEnum, answerOption, answerOptionRelation, dialog, dialogRelation, handbook, kelas, kelasTypeEnum, links, material, materialRelation, media, mediaBucketEnum, mediaRelation, pemilihan_kelas, peserta_kelas, question, questionRelation, questionsRelation, quiz, quizRelation, stage, stageRelation, user, userExtendedScore, userStageProgress, userStageProgressRelation, userStageProgressStatusEnum, userStageRecaps, user_submitted_kelas };
+export { account, accountRelation, accountRoleEnum, announcement, answerOption, answerOptionRelation, dialog, dialogRelation, divisi, handbook, kelas, kelasTypeEnum, links, material, materialRelation, media, mediaBucketEnum, mediaRelation, pemilihan_kelas, peserta_kelas, question, questionRelation, questionsRelation, quiz, quizRelation, stage, stageRelation, user, userExtendedScore, userStageProgress, userStageProgressRelation, userStageProgressStatusEnum, userStageRecaps, user_submitted_kelas };
