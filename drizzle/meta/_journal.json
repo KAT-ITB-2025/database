@@ -22,6 +22,13 @@
       "when": 1751987429669,
       "tag": "0002_public_human_fly",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1752143388233,
+      "tag": "0003_warm_slyde",
+      "breakpoints": true
     }
   ]
 }

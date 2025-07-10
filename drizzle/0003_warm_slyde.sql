@@ -1,0 +1,1 @@
+ALTER TABLE "announcement" ALTER COLUMN "divisi_id" DROP NOT NULL;

@@ -12,7 +12,7 @@ export const announcement = pgTable('announcement', {
   user_id: text('user_id')
     .notNull()
     .references(() => user.id, { onDelete: 'cascade' }),
-  divisi_id: text('divisi_id')
-    .notNull()
-    .references(() => divisi.id, { onDelete: 'cascade' }),
+  divisi_id: text('divisi_id').references(() => divisi.id, {
+    onDelete: 'cascade',
+  }),
 });
